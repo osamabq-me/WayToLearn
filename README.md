@@ -1,7 +1,7 @@
 # Pengembangan Aplikasi Mobile Final project 2024
 
 **App Name:**
-Way To learn
+**_`Way To learn`_**
 
 This app idea originated from my own need, as I navigate the challenges of being a multilingual individual with a passion for languages and a strong desire to learn the language of the new country I live at, Making this idea a suitable solution for all of my International friends in my university and all language learners from around the globe.
 
