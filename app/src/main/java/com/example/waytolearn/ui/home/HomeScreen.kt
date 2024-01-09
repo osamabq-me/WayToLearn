@@ -94,11 +94,36 @@ fun HomeScreen(
                     }
                 }
             }
+            items(homeState.words) {
+                val dismissState = rememberDismissState(
+                    confirmValueChange =
+                    { value ->
+                        if (value == DismissValue.DismissedToEnd) {
+                            homeViewModel.deleteWord(it.word)
+                        }
+                        true
+                    }
+                )
+                SwipeToDismiss(
+                    state = dismissState,
+                    background = {
+                        Surface(
+                            modifier = Modifier.fillMaxWidth(), color = Color.Red
+                        ) {
 
+                        }
+                    },
+                    dismissContent = {
+                        TheWordcard(word = it) {
+                            onNavigate.invoke(it.word.id)
+
+                        }
+                    }
+                )
+            }
         }
     }
 }
-
 
 @Composable
 fun TheWordcard(
