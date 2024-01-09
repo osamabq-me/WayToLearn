@@ -210,3 +210,19 @@ private fun DetailEntry(
 
 
 
+@Preview(showSystemUi = true)
+@Composable
+fun PrevDetailEntry() {
+    DetailEntry(state = DetailState(),
+        onSourceChange = {},
+        onWordChange = {},
+        onMeanChange = {},
+        onDescrChange = {},
+        onCategoryChange = {},
+        onDialogDismissed = {},
+        onSaveSource = { /*TODO*/ },
+        updateWord = { /*TODO*/ },
+        saveWord = { /*TODO*/ }) {
+
+    }
+}
