@@ -65,10 +65,39 @@ fun HomeScreen(
 ) {
     val homeViewModel = viewModel(modelClass = HomeViewModel::class.java)
     val homeState = homeViewModel.state
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = { onNavigate.invoke(-1) }) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = null,
+                )
+            }
+        }
+    ) {
 
+        LazyColumn {
+            item {
+                LazyRow {
+                    items(Utils.category) { category: Category ->
+
+                        CatagoryWords(
+
+                            iconRes = category.resId,
+                            tittle = category.title,
+                            selcted = category == homeState.category
+                        ) {
+                            homeViewModel.onCategoryChange(category)
+                        }
+
+                        Spacer(modifier = Modifier.size(16.dp))
+                    }
+                }
+            }
+
+        }
+    }
 }
-
-
 
 
 @Composable
