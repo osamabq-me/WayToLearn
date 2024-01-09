@@ -23,7 +23,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Button
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -206,23 +205,4 @@ private fun DetailEntry(
     }
 
 
-}
-
-
-
-@Preview(showSystemUi = true)
-@Composable
-fun PrevDetailEntry() {
-    DetailEntry(state = DetailState(),
-        onSourceChange = {},
-        onWordChange = {},
-        onMeanChange = {},
-        onDescrChange = {},
-        onCategoryChange = {},
-        onDialogDismissed = {},
-        onSaveSource = { /*TODO*/ },
-        updateWord = { /*TODO*/ },
-        saveWord = { /*TODO*/ }) {
-
-    }
 }
