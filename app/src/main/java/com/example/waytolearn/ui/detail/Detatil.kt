@@ -40,6 +40,22 @@ fun DetailScreen(
 ) {
     val viewModel = viewModel<DetailViewModel>(factory = DetailViewModelFactor(id))
 
+    Scaffold {
+        DetailEntry(
+            state = viewModel.state,
+            onSourceChange = viewModel::onSourceChange,
+            onWordChange = viewModel::onwordChange,
+            onDescrChange = viewModel::onDescrChange,
+            onMeanChange = viewModel::onmeanChange,
+            onCategoryChange = viewModel::onCategoryChange,
+            onDialogDismissed = viewModel::onScreenDialogDismissed,
+            onSaveSource = viewModel::addSource,
+            updateWord = { viewModel.updateListingword(id) },
+            saveWord = viewModel::addListingword
+        ) {
+            navigateUp.invoke()
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
