@@ -1,4 +1,4 @@
-package com.example.waytolearn.data.models
+package com.example.waytolearn.data.room.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
