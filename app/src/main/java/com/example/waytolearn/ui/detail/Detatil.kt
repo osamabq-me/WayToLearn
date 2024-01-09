@@ -156,7 +156,37 @@ private fun DetailEntry(
         }
         Spacer(modifier = Modifier.size(16.dp))
 
+        val buttonTitle = if (state.isUpdatingword) "Update Word"
+        else "Add item"
+        Spacer(modifier = Modifier.size(16.dp))
 
+        Button(
+            onClick = {
+                when (state.isUpdatingword) {
+                    true -> {
+                        updateWord.invoke()
+                    }
+
+                    false -> {
+                        saveWord.invoke()
+                    }
+                }
+                navigateUp.invoke()
+            },
+
+            shape = RoundedCornerShape(10.dp),
+
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp),
+
+            enabled = state.word.isNotEmpty() &&
+                    state.source.isNotEmpty() &&
+                    state.meaning.isNotEmpty() &&
+                    state.descript.isNotEmpty()
+        ) {
+            Text(text = buttonTitle)
+        }
     }
 
 
