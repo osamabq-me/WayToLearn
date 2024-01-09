@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.waytolearn.data.room.models.Word
-
+import com.example.waytolearn.data.room.models.Source
 import kotlinx.coroutines.flow.Flow
 
 
@@ -31,5 +31,21 @@ interface WordDao {
 
 }
 
+@Dao
+interface SourceDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(source: Source)
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun update(source: Source)
+
+    @Delete
+    suspend fun delete(word: Word)
+
+    @Query("SELECT * FROM sources")
+    fun getAllSources(): Flow<List<Source>>
+
+    @Query("SELECT * FROM sources WHERE source_id =:sourceId")
+    fun getSource(sourceId: Int): Flow<Source>
+}
 
